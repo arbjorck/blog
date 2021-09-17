@@ -1,0 +1,89 @@
+html, body {
+    margin: 0px;
+    height: 100%;
+}
+
+/* th, td {
+    font-size: 10px;
+} */
+
+header {
+    background:rgb(43, 42, 42);
+    /* background: rgb(26, 25, 25); */
+}
+
+.admin-wrapper {
+    height: calc(100% - 62.1px);
+    display: flex;
+}
+
+.admin-wrapper .left-sidebar {
+    flex: 2;
+    height: 100%;
+    background-color: #0582ca;
+}
+
+.admin-wrapper .left-sidebar ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    color: white;
+}
+
+.admin-wrapper .left-sidebar ul a {
+    padding: 18px;
+    display: block;
+    border-bottom: 1px solid #04a2fd;
+}
+
+.admin-wrapper .left-sidebar ul a:hover {
+    background: #04a2fd;
+}
+
+.admin-wrapper .admin-content {
+    flex: 8;
+    height: 100%;
+    padding: 40px 100px;
+    overflow-y: scroll;
+}
+
+.admin-content .page-title {
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.1em;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #0582ca;
+}
+
+table .edit {
+    color: green;
+}
+
+table .delete {
+    color: red; 
+}
+
+table .publish {
+    color: blue;
+}
+
+table .reported {
+    color: rgb(255, 209, 5);
+}
+
+.edit:hover, .delete:hover, .publish:hover {
+    text-decoration: underline;
+}
+
+form div {
+    margin-bottom: 20px;
+}
