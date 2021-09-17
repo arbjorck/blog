@@ -92,7 +92,6 @@ try {
         $passwordConf = $_POST['passwordConf'];
     }
   }
-  var_dump('kjzehfze');
 
   if (isset($_GET['edit_user_id'])) {
     $usersController = new UsersController();
