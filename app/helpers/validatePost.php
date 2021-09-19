@@ -1,5 +1,5 @@
 <?php
-include_once(ROOT_PATH . "/app/database/db.php");
+require_once(ROOT_PATH . "../../app/database/db.php");
 
 class ValidatePost
 {
@@ -15,10 +15,6 @@ class ValidatePost
 
         if (empty($post['body'])) {
             array_push($errors, 'Une contenu est requis.');
-        }
-
-        if (empty($post['topic_id'])) {
-            array_push($errors, 'Veuillez sélectionner un thème.');
         }
 
         $this->selectOne = new DbModel();
