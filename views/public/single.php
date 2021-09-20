@@ -8,20 +8,7 @@ require(ROOT_PATH . "../../index.php");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <!-- Font awesome -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-    <!-- Custom Styling -->
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <link rel="stylesheet" href="../../assets/css/style_media.css">
+    <?php include(ROOT_PATH . "../../app/includes/head.php"); ?>
 
     <title><?php echo $post['title']; ?> | JeanForteroche</title>
 </head>
@@ -31,8 +18,6 @@ require(ROOT_PATH . "../../index.php");
     <?php include(ROOT_PATH . "../../app/includes/header.php"); ?>
     <?php include(ROOT_PATH . "../../app/includes/messages.php"); ?>
     <?php include(ROOT_PATH . "../../app/helpers/formErrors.php"); ?>
-
-
  
     <!-- Page Wrapper -->
     <div class="page-wrapper"> 
@@ -110,14 +95,9 @@ require(ROOT_PATH . "../../index.php");
     </div>
     <!-- // Page Wrapper -->
 
-    <!-- Footer included here -->
-    <?php include(ROOT_PATH . "../../app/includes/footer.php"); ?>
+    <!-- Foot -->
+    <?php include(ROOT_PATH . "../../app/includes/foot.php"); ?>
 
-    <!-- JQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-   
-    <!-- Custom Script -->
-    <script src="/../../assets/js/scripts.js"></script>
 </body>
 
 </html>
