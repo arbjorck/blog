@@ -20,23 +20,11 @@ class PostsController
       return $post;
     }
 
-    // public function getTopics($table)
-    // {
-    //   $topics = $this->dbModel->selectAll($table);
-    //   return $topics;
-    // }
-
     public function getPostsForAdmin($table)
     {
       $getPostsForAdmin = $this->dbModel->getPostsForAdmin($table);
       return $getPostsForAdmin;
     }
-
-    // public function getPostsByTopicId($topicId)
-    // {
-    //     $getPostsByTopicId = $this->dbModel->getPostsByTopicId($topicId);
-    //     return $getPostsByTopicId;
-    // }
 
     public function searchPosts($term)
     {
