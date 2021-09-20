@@ -1,6 +1,6 @@
 <?php
 require_once(ROOT_PATH . "../../app/database/db.php");
-// require_once(ROOT_PATH . "../../app/helpers/middleware.php");
+require_once(ROOT_PATH . "../../app/helpers/middleware.php");
 require_once(ROOT_PATH . "../../app/helpers/validateUser.php");
 
 class UsersController
@@ -40,49 +40,5 @@ class UsersController
         }
         exit();
     }
-
-    // public function createAdmin($table, $data)
-    // {
-    //     $createUser = $this->dbModel->create($table, $data);
-
-    //     if ($data['admin'] === 0)
-    //     {
-    //         $_SESSION['message'] = "L'utilisateur a été créé.";
-    //         $_SESSION['type'] = 'success';
-    //         header('location: ' . BASE_URL . '/views/admin/users/index.php?admin=users');
-    //         exit();
-    //     } else {
-    //         $_SESSION['message'] = "L'utilisateur admin a été créé.";
-    //         $_SESSION['type'] = 'success';
-    //         header('location: ' . BASE_URL . '/views/admin/users/index.php?admin=users');
-    //         exit();
-    //     }
-    // }
-
-    // public function createUser($table, $data)
-    // {
-    //     $createUser = $this->dbModel->create($table, $data);
-    //     return $createUser;
-    // }
-
-    // public function updateUser($table, $id, $data)
-    // {
-    //     $updateUser = $this->dbModel->update($table, $id, $data);
-
-    //     $_SESSION['message'] = "L'utilisateur a été actualisé.";
-    //     $_SESSION['type'] = 'success';
-    //     header('location: ' . BASE_URL . '/views/admin/users/index.php?admin=users');
-    //     exit();
-    // }
-
-    // public function deleteUser($table, $id)
-    // {
-    //     $deleteUser = $this->dbModel->delete($table, $id);
-
-    //     $_SESSION['message'] = 'L\'utilisateur a été effacé.';
-    //     $_SESSION['type'] = 'success';
-    //     header('location: ' . BASE_URL . '/views/admin/users/index.php?admin=users');
-    //     exit();
-    // }
 }
 
