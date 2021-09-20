@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', true);
+// error_reporting(E_ALL);
+// ini_set('display_errors', true);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,13 +41,9 @@ ini_set('display_errors', true);
             <div class="main-content">
                 <h2 class="recent-post-title"><?php echo $postsTitle ?></h2>
                 
-                <?php if(isset($_GET['topic_id'])){
-                    $posts = $getPostsByTopicId;
-                } elseif(isset($_POST['search-term'])){
-                    $posts = $searchPosts;
-                } else {
+                <?php 
                     $posts = $getPublishedPosts;
-                } foreach ($posts as $post): ?>
+                    foreach ($posts as $post): ?>
                     <div class="post clearfix">
                         <img src="<?php echo BASE_URL .'/assets/images/' . $post['image']; ?>" alt="" class="post-image">
                         <div class="post-preview">
