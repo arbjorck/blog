@@ -56,7 +56,7 @@ ini_set('display_errors', true);
                             <!-- &nbsp; -->
                             <i class="far fa-calendar"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
                             <p class="preview-text">
-                                <?php echo html_entity_decode(substr($post['body'], 0, 150) . '...'); ?>
+                                <?php echo html_entity_decode(substr($post['body'], 0, 200) . '...'); ?>
                             </p>
                             <a href="views/public/single.php?id=<?php echo $post['id']; ?>" class="btn read-more">Lire</a>
                         </div>
