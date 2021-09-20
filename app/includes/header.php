@@ -22,7 +22,6 @@
                 </ul>
             </li>
             <?php else: ?>
-                <!-- <li><a href="<?php echo BASE_URL . '/views/public/register.php?register' ?>">Créer un compte</a></li> -->
                 <li><a href="<?php echo BASE_URL . '/views/public/login.php?login' ?>">Se connecter</a></li>
             <?php endif; ?>
         </ul>
