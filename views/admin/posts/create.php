@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', true);
+// error_reporting(E_ALL);
+// ini_set('display_errors', true);
 include("../../path.php");
 include(ROOT_PATH . "../../index.php");
 ?>
@@ -65,14 +65,6 @@ include(ROOT_PATH . "../../index.php");
                         <div>
                             <label>Body</label>
                             <textarea name="body" id="body"><?php echo $body ?></textarea>
-                        </div>
-                        <div>
-                            <?php if (empty($published)): ?>
-                                <label>
-                                    <input type="checkbox" name="published" checked>
-                                    Publier
-                                </label>
-                            <?php endif; ?> 
                         </div>
                         <div>
                             <button type="submit" name="add-post" class="btn btn-big">Ajouter Post</button>
