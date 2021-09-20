@@ -162,33 +162,33 @@ class DbModel
         // return $records;
     }
 
-    public function getPostsByTopicId($topicId)
-    {
-        $conn = $this->dbConnect->dbConnect();
-        $sql = "SELECT p.*, u.username FROM posts AS p JOIN users AS u ON p.user_id=u.id WHERE p.published=? AND topic_id=?";
+    // public function getPostsByTopicId($topicId)
+    // {
+    //     $conn = $this->dbConnect->dbConnect();
+    //     $sql = "SELECT p.*, u.username FROM posts AS p JOIN users AS u ON p.user_id=u.id WHERE p.published=? AND topic_id=?";
 
-        $stmt = $this->executeQuery($sql, ['published' => 1, 'topic_id' => $topicId]);
-        $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    //$rec = $records[0];
-        return $records;
-    }
+    //     $stmt = $this->executeQuery($sql, ['published' => 1, 'topic_id' => $topicId]);
+    //     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // //$rec = $records[0];
+    //     return $records;
+    // }
 
-    public function searchPosts($term)
-    {
-        $match = '%' . $term . '%';
-        $conn = $this->dbConnect->dbConnect();
-        $sql = "SELECT 
-                    p.*, u.username 
-                FROM posts AS p 
-                JOIN users AS u 
-                ON p.user_id=u.id 
-                WHERE p.published=?
-                AND p.title LIKE ? OR p.body LIKE ? ";
+    // public function searchPosts($term)
+    // {
+    //     $match = '%' . $term . '%';
+    //     $conn = $this->dbConnect->dbConnect();
+    //     $sql = "SELECT 
+    //                 p.*, u.username 
+    //             FROM posts AS p 
+    //             JOIN users AS u 
+    //             ON p.user_id=u.id 
+    //             WHERE p.published=?
+    //             AND p.title LIKE ? OR p.body LIKE ? ";
 
-        $stmt = $this->executeQuery($sql, ['published' => 1, 'title' => $match, 'body' => $match]);
-        $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $records;
-    }
+    //     $stmt = $this->executeQuery($sql, ['published' => 1, 'title' => $match, 'body' => $match]);
+    //     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //     return $records;
+    // }
 
     public function getReportedComments($postId)
     {
