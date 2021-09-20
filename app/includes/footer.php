@@ -12,7 +12,7 @@
                 <h2>Liens</h2>
                 <br>
                 <ul>
-                    <a href="<?php echo BASE_URL . '/views/public/legalNotice.php?notice' ?>"><li>Terms and conditions</li></a>
+                    <a href="<?php echo BASE_URL . '/views/public/legalNotice.php?notice' ?>"><li>Mentions Légales</li></a>
                 </ul>
             </div>
         </div>

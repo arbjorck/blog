@@ -92,7 +92,6 @@ a {
 /* NAVBAR */
 
 header {
-    /* background:rgb(43, 42, 42); */
     background: #043d6b;
     height: 67.1px; 
     z-index: 8888;
@@ -176,7 +175,6 @@ header ul li a:hover {
 
 header .menu-toggle {
     display: none;
-    z-index: 8888;
 }
 
 .page-wrapper {
@@ -242,7 +240,7 @@ header .menu-toggle {
 
 .post-slider .post-wrapper .post .slider-image {
     width: 100%;
-    height: auto;
+    height: 100%;
     overflow: hidden;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -257,12 +255,16 @@ header .menu-toggle {
 }
 
 .content {
-    width: 90%;
-    margin: 30px auto 30px;
+    width: 100%;
+    margin-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    /* display: flex;
+    justify-content: center; */
 }
 
 .content .main-content {
-    width: 70%;
+    width: 100%;
     float: left;
 }
 
@@ -285,7 +287,7 @@ header .menu-toggle {
 
 .content .main-content .post {
     width: 95%;
-    height: 270px;
+    height: 350px;
     margin: 10px auto;
     border-radius: 5px;
     background: white;
@@ -455,13 +457,13 @@ header .menu-toggle {
 .footer {
     background: rgb(43, 42, 42);
     color:  rgb(148, 148, 148);
-    height: 400px;
+    height: 220px;
     position: relative;
     margin-top: 100px;
 }
 
 .footer .foter-content {
-    height: 350px;
+    height: 70px;
     display: flex;
 }
 
@@ -547,17 +549,3 @@ header .menu-toggle {
     left: 0px;
     padding-top: 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

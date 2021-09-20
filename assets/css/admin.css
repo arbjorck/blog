@@ -3,23 +3,23 @@ html, body {
     height: 100%;
 }
 
-/* th, td {
-    font-size: 10px;
-} */
-
 header {
     background:rgb(43, 42, 42);
-    /* background: rgb(26, 25, 25); */
+}
+
+.page-title {
+    font-size: 25px;
 }
 
 .admin-wrapper {
+    width: 100%;
     height: calc(100% - 62.1px);
     display: flex;
 }
 
 .admin-wrapper .left-sidebar {
-    flex: 2;
-    height: 100%;
+    width: 17%;
+    height: auto;
     background-color: #0582ca;
 }
 
@@ -41,10 +41,25 @@ header {
 }
 
 .admin-wrapper .admin-content {
-    flex: 8;
+    width: 83%;
     height: 100%;
     padding: 40px 100px;
     overflow-y: scroll;
+    margin: auto;
+}
+
+.admin-wrapper .admin-content .button-group .btn {
+    background: #04a2fd;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    font-size: 1.08em;
+    padding: .7rem 1.3rem;
+}
+
+.admin-wrapper .admin-content .button-group .btn:hover {
+    color: White !important;
+    background: #0582ca;
 }
 
 .admin-content .page-title {
