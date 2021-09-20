@@ -44,8 +44,8 @@ try {
     $middleware = new Middleware();
     $adminOnly = $middleware->adminOnly();
 
-    $topicsController = new TopicsController();
-    $topics = $topicsController->getTopics('topics');
+    // $topicsController = new TopicsController();
+    // $topics = $topicsController->getTopics('topics');
   } elseif (isset($_GET['edit_post_id'])) {
     $middleware = new Middleware();
     $adminOnly = $middleware->adminOnly();
@@ -53,13 +53,13 @@ try {
     $postsController = new PostsController();
     $post = $postsController->selectOnePost('posts', ['id' => $_GET['edit_post_id']]);
     $id = $post['id'];
-    $topic_id = $post['topic_id'];
+    // $topic_id = $post['topic_id'];
     $title = $post['title'];
     $body = $post['body'];
     $published = $post['published'];
 
-    $topicsController = new TopicsController();
-    $topics = $topicsController->getTopics('topics');
+  //   $topicsController = new TopicsController();
+  //   $topics = $topicsController->getTopics('topics');
   } elseif (isset($_POST['update-post'])) {
     $middleware = new Middleware();
     $adminOnly = $middleware->adminOnly();
@@ -81,11 +81,11 @@ try {
         $id = $_POST['id'];
         $title = $_POST['title'];
         $body = $_POST['body'];
-        $topic_id = $_POST['topic_id'];
+        // $topic_id = $_POST['topic_id'];
         $published = isset($_POST['published']) ? 1 : 0;
 
-        $topicsController = new TopicsController();
-        $topics = $topicsController->getTopics('topics');
+        // $topicsController = new TopicsController();
+        // $topics = $topicsController->getTopics('topics');
     }
 
     if (!empty($_FILES['image']['name'])) {
@@ -141,7 +141,7 @@ try {
     }else {
         $title = $_POST['title'];
         $body = $_POST['body'];
-        $topic_id = $_POST['topic_id'];
+        // $topic_id = $_POST['topic_id'];
         $published = isset($_POST['published']) ? 1 : 0;
     }
   } elseif (isset($_GET['delete_id_post'])) {
@@ -180,63 +180,63 @@ try {
     $_SESSION['type'] = "success";
     header("location: " . BASE_URL . "/views/admin/comments/index.php?admin=comments");
     exit();
-  } elseif (isset($_GET['admin']) && $_GET['admin'] === 'topics') {
+  } elseif (isset($_GET['admin'])) { //&& $_GET['admin'] === 'topics'
     $middleware = new Middleware();
     $adminOnly = $middleware->adminOnly();
 
-    $topicsController = new TopicsController();
-    $topics = $topicsController->getTopics('topics');
-  } elseif (isset($_GET['create']) && $_GET['create'] === 'topic') {
-    $middleware = new Middleware();
-    $adminOnly = $middleware->adminOnly();
-  } elseif (isset($_GET['edit_topic_id'])) {
-    $topicsController = new TopicsController();
-    $topic = $topicsController->selectOneTopic('topics', ['id' => $_GET['edit_topic_id']]);
-    $id = $topic['id'];
-    $name = $topic['name'];
-    $description = $topic['description'];
-  } elseif (isset($_POST['update-topic'])) {
-    $middleware = new Middleware();
-    $adminOnly = $middleware->adminOnly();
+  //   $topicsController = new TopicsController();
+  //   $topics = $topicsController->getTopics('topics');
+  // } elseif (isset($_GET['create']) && $_GET['create'] === 'topic') {
+  //   $middleware = new Middleware();
+  //   $adminOnly = $middleware->adminOnly();
+  // } elseif (isset($_GET['edit_topic_id'])) {
+  //   $topicsController = new TopicsController();
+  //   $topic = $topicsController->selectOneTopic('topics', ['id' => $_GET['edit_topic_id']]);
+  //   $id = $topic['id'];
+  //   $name = $topic['name'];
+  //   $description = $topic['description'];
+  // } elseif (isset($_POST['update-topic'])) {
+  //   $middleware = new Middleware();
+  //   $adminOnly = $middleware->adminOnly();
   
-    $validateTopic = new ValidateTopic($_POST);
-    $errors = $validateTopic->validateTopic($_POST);
+    // $validateTopic = new ValidateTopic($_POST);
+    // $errors = $validateTopic->validateTopic($_POST);
   
-    if (count($errors) === 0) {
-      $id = $_POST['id'];
-      unset($_POST['update-topic'], $_POST['id']);
+    // if (count($errors) === 0) {
+    //   $id = $_POST['id'];
+    //   unset($_POST['update-topic'], $_POST['id']);
   
-      $topicsController = new TopicsController();
-      $topicUpdate = $topicsController->updateTopic('topics', $id, $_POST);
-    } else {
-      $id = $_POST['id'];
-      $name = $_POST['name'];
-      $description = $_POST['description'];
-    }
-  } elseif (isset($_GET['del_topic_id'])) {
-    $middleware = new Middleware();
-    $adminOnly = $middleware->adminOnly();
+    //   $topicsController = new TopicsController();
+    //   $topicUpdate = $topicsController->updateTopic('topics', $id, $_POST);
+    // } else {
+    //   $id = $_POST['id'];
+    //   $name = $_POST['name'];
+    //   $description = $_POST['description'];
+    // }
+  // } elseif (isset($_GET['del_topic_id'])) {
+  //   $middleware = new Middleware();
+  //   $adminOnly = $middleware->adminOnly();
   
-    $id = $_GET['del_topic_id'];
-    $topicsController = new TopicsController();
-    $deleteTopic = $topicsController->deleteTopic('topics', $id);
-  } elseif (isset($_POST['add-topic'])) {
-    // Création d'un objet
-    $middleware = new Middleware();
-    // Appel d'une fonction de cet objet
-    $adminOnly = $middleware->adminOnly();
+  //   $id = $_GET['del_topic_id'];
+  //   $topicsController = new TopicsController();
+  //   $deleteTopic = $topicsController->deleteTopic('topics', $id);
+  // } elseif (isset($_POST['add-topic'])) {
+  //   // Création d'un objet
+  //   $middleware = new Middleware();
+  //   // Appel d'une fonction de cet objet
+  //   $adminOnly = $middleware->adminOnly();
   
-    $validateTopic = new ValidateTopic($_POST);
-    $errors = $validateTopic->validateTopic($_POST);
+    // $validateTopic = new ValidateTopic($_POST);
+    // $errors = $validateTopic->validateTopic($_POST);
   
-    if (count($errors) === 0) {
-      unset($_POST['add-topic']);
-      $topicsController = new TopicsController();
-      $topic_id = $topicsController->createTopic('topics', $_POST);
-    } else {
-      $name = $_POST['name'];
-      $description = $_POST['description'];
-    }
+    // if (count($errors) === 0) {
+    //   unset($_POST['add-topic']);
+    //   $topicsController = new TopicsController();
+    //   $topic_id = $topicsController->createTopic('topics', $_POST);
+    // } else {
+    //   $name = $_POST['name'];
+    //   $description = $_POST['description'];
+    // }
   } elseif (isset($_GET['admin']) && $_GET['admin'] === 'users') {
     $middleware = new Middleware();
     $adminOnly = $middleware->adminOnly();
@@ -402,8 +402,8 @@ try {
     $postsController = new PostsController();
     $post = $postsController->selectOnePost('posts', ['id' => $id]);
 
-    $topicsController = new TopicsController();
-    $topics = $topicsController->getTopics('topics');
+    // $topicsController = new TopicsController();
+    // $topics = $topicsController->getTopics('topics');
 
     $postsController = new PostsController();
     $getPublishedPosts = $postsController->getPublishedPosts();
@@ -413,33 +413,33 @@ try {
 
     $commentsController = new CommentsController();
     $publishedComments = $commentsController->getPublishedComments($id);
-  } elseif (isset($_GET['id-topic'])) {
-    $id = $_GET['id-topic'];
-    $topicsController = new TopicsController();
-    $topic = $topicsController->selectOneTopic('topics', ['id' => $id]);
+  // } elseif (isset($_GET['id-topic'])) {
+  //   $id = $_GET['id-topic'];
+  //   $topicsController = new TopicsController();
+  //   $topic = $topicsController->selectOneTopic('topics', ['id' => $id]);
   
-    $id = $topic['id'];
-    $name = $topic['name'];
-    $description = $topic['description'];
-  } elseif (isset($_GET['topic_id'])) {
-    $postsController = new PostsController();
-    $getPublishedPosts = $postsController->getPublishedPosts();
-    $getPostsByTopicId = $postsController->getPostsByTopicId($_GET['topic_id']);
+  //   $id = $topic['id'];
+  //   $name = $topic['name'];
+  //   $description = $topic['description'];
+  // } elseif (isset($_GET['topic_id'])) {
+  //   $postsController = new PostsController();
+  //   $getPublishedPosts = $postsController->getPublishedPosts();
+  //   $getPostsByTopicId = $postsController->getPostsByTopicId($_GET['topic_id']);
 
-    $topicsController = new TopicsController();
-    $topics = $topicsController->getTopics('topics');  
+  //   $topicsController = new TopicsController();
+  //   $topics = $topicsController->getTopics('topics');  
 
-    $postsTitle = "Vous avez recherché ''" . $_GET['name'] . "''";
+    // $postsTitle = "Vous avez recherché ''" . $_GET['name'] . "''";
 
     require(ROOT_PATH . "../../views/public/home.php");
-  } elseif (isset($_POST['search-term'])) {
-    $postsTitle = "Vous avez recherché ''" . $_POST['search-term'] . "''";
-    $postsController = new PostsController();
-    $searchPosts = $postsController->searchPosts($_POST['search-term']);
-    $getPublishedPosts = $postsController->getPublishedPosts();
+  // } elseif (isset($_POST['search-term'])) {
+  //   $postsTitle = "Vous avez recherché ''" . $_POST['search-term'] . "''";
+  //   $postsController = new PostsController();
+  //   $searchPosts = $postsController->searchPosts($_POST['search-term']);
+  //   $getPublishedPosts = $postsController->getPublishedPosts();
 
-    $topicsController = new TopicsController();
-    $topics = $topicsController->getTopics('topics');  
+    // $topicsController = new TopicsController();
+    // $topics = $topicsController->getTopics('topics');  
 
     require(ROOT_PATH . "../../views/public/home.php");
   } elseif (isset($_GET['login'])) {
@@ -463,8 +463,8 @@ try {
     $postsController = new PostsController();
     $getPublishedPosts = $postsController->getPublishedPosts();
 
-    $topicsController = new TopicsController();
-    $topics = $topicsController->getTopics('topics');
+    // $topicsController = new TopicsController();
+    // $topics = $topicsController->getTopics('topics');
 
     require(ROOT_PATH . "../../views/public/home.php");
   }
