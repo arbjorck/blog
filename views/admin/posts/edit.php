@@ -65,19 +65,6 @@ include(ROOT_PATH . "../../index.php");
                             <textarea name="body" id="body"><?php echo $body ?></textarea>
                         </div>
                         <div>
-                            <?php if (empty($published) && $published == 0): ?>
-                                <label>
-                                    <input type="checkbox" name="published">
-                                    Publier
-                                </label>
-                            <?php else: ?>
-                                <label>
-                                    <input type="checkbox" name="published" checked>
-                                    Publier
-                                </label>
-                            <?php endif; ?> 
-                        </div>
-                        <div>
                             <button type="submit" name="update-post" class="btn btn-big">Actualiser Post</button>
                         </div>
                     </form>
