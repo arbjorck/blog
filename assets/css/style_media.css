@@ -5,7 +5,7 @@
     }
 }
 
-@media only screen and (min-width: 2300px) {
+@media only screen and (min-width: 2300px) and (max-width: 3000px) {
     p {
         font-size: 25px;
     }
@@ -131,9 +131,8 @@
     }
 
     .content .main-content .post {
-    height: 500px;
+    height: 360px;
     }
-
 
     .footer .foter-content {
         margin-right: 30px;
