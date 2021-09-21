@@ -14,9 +14,7 @@ class PostsController
 
     public function selectOnePost($table, $conditions)
     {
-      // Création d'un objet
       $post = $this->dbModel->selectOne($table, $conditions);
-      // Appel d'une fonction de cet objet
       return $post;
     }
 

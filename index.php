@@ -58,11 +58,24 @@ try {
     $validatePosts = new ValidatePost($_POST);
     $errors = $validatePosts->validatePost($_POST);
 
+    if (!empty($_FILES['image']['name'])) {
+      $image_name = time() . ' ' . $_FILES['image']['name'];
+      $destination = ROOT_PATH . "../../assets/images/" . $image_name;
+
+      $result = move_uploaded_file($_FILES['image']['tmp_name'], $destination);
+
+      if ($result) {
+          $_POST['image'] = $image_name;
+      } else {
+          array_push($errors, "Le téléchargement de l'image a échoué.");
+      }
+    }
+
     if (count($errors) == 0) {
         $id = $_POST['id'];
         unset($_POST['update-post'], $_POST['id']);
         $_POST['user_id'] = $_SESSION['id'];
-        $_POST['published'] = isset($_POST['published']) ? 1 : 0;
+        $_POST['published'] = isset($_POST['published']) ? 0 : 1;
         $_POST['body'] = htmlentities($_POST['body']); //pour sécuriser code
     
 
@@ -337,16 +350,14 @@ try {
   } elseif (isset($_GET['id'])) {
     $id = $_GET['id'];
 
+    // Création d'un objet
     $postsController = new PostsController();
+    // Appel d'une fonction de cet objet
     $post = $postsController->selectOnePost('posts', ['id' => $id]);
-
-    $postsController = new PostsController();
-    $getPublishedPosts = $postsController->getPublishedPosts();
-
+ 
     $commentsController = new CommentsController();
+    // Appel d'une fonction de cet objet
     $reportedComments = $commentsController->getReportedComments($id);
-
-    $commentsController = new CommentsController();
     $publishedComments = $commentsController->getPublishedComments($id);
 
   } elseif (isset($_GET['login'])) {

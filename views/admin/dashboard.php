@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', true);
 session_start();
 include("../path.php");
 $errors = array();
@@ -7,7 +9,8 @@ $errors = array();
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <?php include(ROOT_PATH . "../../app/includes/adminHead.php"); ?>
+        <?php
+        include(ROOT_PATH . "../../app/includes/adminHead.php"); ?>
         
         <!-- Custom Styling -->
         <link rel="stylesheet" href="../../assets/css/style.css">

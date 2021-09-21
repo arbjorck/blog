@@ -57,7 +57,6 @@ if(isset($_POST['login-btn']))
             <div>
                 <button type="submit" name="login-btn" class="btn btn-big login">Connexion</button>
             </div>
-            <p>ou <a href="<?php echo BASE_URL . '../../views/public/register.php' ?>">S'inscrire</a></p>
         </form>
     </div>
  

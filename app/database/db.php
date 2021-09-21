@@ -31,8 +31,6 @@ class DbModel
         if (isset($data)) {
             $i = 1;
             foreach($data as $key => &$value) {
-                //$value = "%" . $value . "%";
-                //echo 'value' . $value . 'param'. $param;
                 $stmt->bindParam($i, $value, $param[$key]);
                 $i++;
             }
@@ -208,9 +206,8 @@ class DbModel
     public function getPostsForAdmin()
     {
         $conn = $this->dbConnect->dbConnect();
-        $sql = "SELECT p.*, u.username, t.name FROM posts AS p
-        LEFT JOIN users AS u ON p.user_id=u.id
-        LEFT JOIN topics AS t ON p.topic_id=t.id";
+        $sql = "SELECT p.*, u.username FROM posts AS p
+        LEFT JOIN users AS u ON p.user_id=u.id";
 
         $stmt = $conn->prepare($sql);
         $stmt->execute();
